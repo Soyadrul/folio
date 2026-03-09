@@ -1,0 +1,81 @@
+name: folio
+description: A feature-rich eBook reader supporting EPUB and PDF formats.
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # ─── Book Rendering ───────────────────────────────────────────────────────
+  # epub_view: renders EPUB files as Flutter widgets, handles chapters/TOC
+  epub_view: ^3.2.0
+  # pdfx: renders PDF files page by page inside Flutter
+  pdfx: ^2.6.0
+
+  # ─── State Management ────────────────────────────────────────────────────
+  # provider: the official Flutter state management solution.
+  # It lets widgets "listen" to data and rebuild when data changes.
+  provider: ^6.1.2
+
+  # ─── Local Storage ───────────────────────────────────────────────────────
+  # sqflite: SQLite database for Flutter — stores progress, bookmarks, etc.
+  sqflite: ^2.3.3
+  # shared_preferences: stores simple key-value settings (theme, font size, etc.)
+  shared_preferences: ^2.3.2
+
+  # ─── File System ─────────────────────────────────────────────────────────
+  # file_picker: shows the native Android folder/file picker dialog
+  file_picker: ^10.3.10
+  # path_provider: finds standard device folders (documents, downloads, etc.)
+  path_provider: ^2.1.4
+  # path: utility functions for working with file paths (join, extension, etc.)
+  path: ^1.9.0
+
+  # ─── Permissions ─────────────────────────────────────────────────────────
+  # permission_handler: requests runtime permissions (storage access on Android)
+  permission_handler: ^12.0.1
+
+  # ─── Device Features ─────────────────────────────────────────────────────
+  # battery_plus: reads the current battery level and charging status
+  battery_plus: ^7.0.0
+  # wakelock_plus: prevents the screen from turning off while reading
+  wakelock_plus: ^1.2.8
+
+  # ─── Typography ──────────────────────────────────────────────────────────
+  # google_fonts: gives access to hundreds of Google Fonts including
+  # reading-optimized fonts like Merriweather, Lora, OpenDyslexic
+  google_fonts: ^8.0.2
+
+  # ─── Utilities ───────────────────────────────────────────────────────────
+  # intl: formats dates and times according to the device locale
+  intl: ^0.20.2
+  # collection: extra collection utilities (grouping, sorting helpers)
+  collection: ^1.18.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+
+flutter:
+  uses-material-design: true
+
+  # Asset folders — we will add book cover placeholders and fonts here later
+  assets:
+    - assets/images/
+    - assets/fonts/
+
+  fonts:
+    # OpenDyslexic — a free font specifically designed to improve readability
+    # for people with dyslexia. The font file must be placed in assets/fonts/
+    - family: OpenDyslexic
+      fonts:
+        - asset: assets/fonts/OpenDyslexic-Regular.ttf
+        - asset: assets/fonts/OpenDyslexic-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/OpenDyslexic-Italic.ttf
+          style: italic
