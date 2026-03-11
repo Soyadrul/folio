@@ -648,7 +648,7 @@ class _HighlightRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final hlColor = highlight.color.toColor();
+    final hlColor = highlight.color.color;
 
     return Dismissible(
       key:         ValueKey(highlight.id),
@@ -980,11 +980,11 @@ class _HighlightEditorSheetState extends State<_HighlightEditorSheet> {
                 width:   double.infinity,
                 padding: const EdgeInsets.all(14),
                 decoration: BoxDecoration(
-                  color:        _selectedColor.toColor().withOpacity(0.1),
+                  color:        _selectedColor.color.withOpacity(0.1),
                   borderRadius: BorderRadius.circular(10),
                   border: Border(
                     left: BorderSide(
-                        color: _selectedColor.toColor().withOpacity(0.7),
+                        color: _selectedColor.color.withOpacity(0.7),
                         width: 3),
                   ),
                 ),
@@ -1021,7 +1021,7 @@ class _HighlightEditorSheetState extends State<_HighlightEditorSheet> {
                       margin:   const EdgeInsets.only(right: 12),
                       width:    36, height: 36,
                       decoration: BoxDecoration(
-                        color:  c.toColor().withOpacity(0.85),
+                        color:  c.color.withOpacity(0.85),
                         shape:  BoxShape.circle,
                         border: Border.all(
                           color: isSelected
@@ -1031,7 +1031,7 @@ class _HighlightEditorSheetState extends State<_HighlightEditorSheet> {
                         ),
                         boxShadow: isSelected
                             ? [BoxShadow(
-                                color:      c.toColor().withOpacity(0.4),
+                                color:      c.color.withOpacity(0.4),
                                 blurRadius: 8)]
                             : [],
                       ),

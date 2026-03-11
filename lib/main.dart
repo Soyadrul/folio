@@ -10,6 +10,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
+import 'package:sqflite_common_ffi/sqflite_ffi.dart';
 
 import 'providers/theme_provider.dart';
 import 'providers/settings_provider.dart';
@@ -28,6 +29,11 @@ Future<void> main() async {
   // async work in main(). It initialises the bridge between Dart and the
   // Flutter engine, which is required for things like SharedPreferences.
   WidgetsFlutterBinding.ensureInitialized();
+
+  // Initialize sqflite FFI for desktop platforms (Linux, macOS, Windows)
+  // This is required because the default sqflite only works on mobile
+  sqfliteFfiInit();
+  databaseFactory = databaseFactoryFfi;
 
   // Lock the app to portrait orientation only.
   // Reading a book in landscape is unusual on phones; we can add it later.

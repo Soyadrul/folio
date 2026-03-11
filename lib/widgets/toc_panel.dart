@@ -211,7 +211,7 @@ class _TocPanelState extends State<TocPanel> {
           IconButton(
             icon:  Icon(Icons.close_rounded,
                 color: fg.withOpacity(0.4), size: 20),
-            onTap: widget.onClose,
+            onPressed: widget.onClose,
           ),
         ],
       ),

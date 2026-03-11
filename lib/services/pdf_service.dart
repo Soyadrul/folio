@@ -37,8 +37,8 @@ class PdfService {
       try {
         final firstPage = await doc.getPage(1);
         final image     = await firstPage.render(
-          width:  150,
-          height: (150 * firstPage.height / firstPage.width).round(),
+          width:  150.0,
+          height: 150.0 * firstPage.height / firstPage.width,
           format: PdfPageImageFormat.jpeg,
           backgroundColor: '#FFFFFF',
         );

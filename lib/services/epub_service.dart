@@ -55,7 +55,8 @@ class EpubService {
       try {
         final cover = epubBook.CoverImage;
         if (cover != null) {
-          coverBytes = cover;
+          // Image.getBytes() returns Uint8List which we convert to List<int>
+          coverBytes = cover.getBytes().toList();
         }
       } catch (_) {
         // Some EPUBs declare a cover in metadata but the file is missing.

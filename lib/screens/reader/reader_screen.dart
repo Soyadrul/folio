@@ -25,6 +25,7 @@
 ///   6. Sleep timer expired overlay
 
 import 'dart:async';
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
@@ -204,9 +205,12 @@ class _ReaderScreenState extends State<ReaderScreen>
   Future<void> _initEpub(Book book) async {
     setState(() => _loadingMessage = 'Opening chapters…');
 
-    // EpubController takes the file path and sets up the renderer
+    // Read the file bytes first
+    final fileBytes = await File(book.filePath).readAsBytes();
+    
+    // EpubController takes a Future<EpubBook> and sets up the renderer
     _epubController = ev.EpubController(
-      document: ev.EpubDocument.openFile(book.filePath),
+      document: ev.EpubDocument.openData(fileBytes),
     );
 
     // Count total chapters for the status bar denominator
@@ -219,6 +223,7 @@ class _ReaderScreenState extends State<ReaderScreen>
         // EpubController.scrollTo() navigates to a specific chapter
         // Note: exact within-chapter scroll offset restoration
         // will be added in Step 8 (bookmarks & highlights refinement)
+        _epubController?.scrollTo(index: _progress!.spineIndex);
       });
     }
   }
@@ -447,18 +452,32 @@ class _ReaderScreenState extends State<ReaderScreen>
         options: ev.DefaultBuilderOptions(
           // Apply user's typography preferences to the rendered text
           textStyle: _buildTextStyle(settings, pageText),
-          chapterDividerBuilder: (_) => Divider(
-            color: pageText.withOpacity(0.1),
-            height: 48,
-          ),
         ),
-        chapterBuilder: (context, chapter) {
+        // Chapter divider shown between chapters
+        chapterDividerBuilder: (_) => Divider(
+          color: pageText.withOpacity(0.1),
+          height: 48,
+        ),
+        // Chapter builder — we use the default but track progress
+        chapterBuilder: (context, builders, document, chapters, paragraphs,
+            index, chapterIndex, paragraphIndex, onExternalLink) {
           // Track current chapter in progress
           WidgetsBinding.instance.addPostFrameCallback((_) {
-            _updateEpubProgress(chapter);
+            if (chapterIndex >= 0 && chapterIndex < chapters.length) {
+              _updateEpubProgress(chapters[chapterIndex]);
+            }
           });
-          return null; // null = use default chapter layout
+          // Use default chapter rendering
+          return builders.chapterBuilder(
+            context, builders, document, chapters, paragraphs,
+            index, chapterIndex, paragraphIndex, onExternalLink,
+          );
         },
+        // Loading indicator shown while document loads
+        loaderBuilder: (_) => const Center(
+          child: CircularProgressIndicator(
+            color: Color(0xFF5B7FA6), strokeWidth: 2),
+        ),
       ),
     );
   }
@@ -480,7 +499,7 @@ class _ReaderScreenState extends State<ReaderScreen>
           child: CircularProgressIndicator(
             color: Color(0xFF5B7FA6), strokeWidth: 2),
         ),
-        pageLoaderBuilder: (_, __) => const Center(
+        pageLoaderBuilder: (_) => const Center(
           child: CircularProgressIndicator(
             color: Color(0xFF5B7FA6), strokeWidth: 2),
         ),
@@ -694,7 +713,11 @@ class _ReaderScreenState extends State<ReaderScreen>
 
     final book = reader.currentBook ?? widget.book;
     if (book.format == BookFormat.epub && _epubController != null) {
-      _epubController!.nextPage();
+      // For EPUB: navigate to next chapter using scrollTo
+      final currentIndex = _epubController!.currentValue?.chapterNumber ?? 0;
+      if (currentIndex > 0 && currentIndex < _totalPages) {
+        _epubController!.scrollTo(index: currentIndex);
+      }
     } else if (book.format == BookFormat.pdf && _pdfController != null) {
       _pdfController!.nextPage(
         duration: const Duration(milliseconds: 250),
@@ -708,7 +731,11 @@ class _ReaderScreenState extends State<ReaderScreen>
 
     final book = reader.currentBook ?? widget.book;
     if (book.format == BookFormat.epub && _epubController != null) {
-      _epubController!.prevPage();
+      // For EPUB: navigate to previous chapter using scrollTo
+      final currentIndex = _epubController!.currentValue?.chapterNumber ?? 1;
+      if (currentIndex > 1) {
+        _epubController!.scrollTo(index: currentIndex - 2);
+      }
     } else if (book.format == BookFormat.pdf && _pdfController != null) {
       _pdfController!.previousPage(
         duration: const Duration(milliseconds: 250),

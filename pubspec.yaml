@@ -24,6 +24,8 @@ dependencies:
   # ─── Local Storage ───────────────────────────────────────────────────────
   # sqflite: SQLite database for Flutter — stores progress, bookmarks, etc.
   sqflite: ^2.3.3
+  # sqflite_common_ffi: SQLite for desktop platforms (Linux, macOS, Windows)
+  sqflite_common_ffi: ^2.3.0
   # shared_preferences: stores simple key-value settings (theme, font size, etc.)
   shared_preferences: ^2.3.2
 

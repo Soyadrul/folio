@@ -13,7 +13,7 @@
 
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart' as p;
-import 'models.dart';
+import '../models/models.dart';
 
 class DatabaseService {
   // ── Singleton pattern ─────────────────────────────────────────────────────

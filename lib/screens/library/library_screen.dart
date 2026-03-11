@@ -353,11 +353,12 @@ class _LibraryScreenState extends State<LibraryScreen>
               itemCount:        books.length,
               itemBuilder: (context, index) {
                 final book = books[index];
+                final progress = context.read<LibraryProvider>().getProgress(book.id);
                 return Padding(
                   padding: const EdgeInsets.only(right: 16),
                   child: BookFeaturedCard(
                     book:     book,
-                    progress: context.read<LibraryProvider>().getProgress(book.id),
+                    progress: progress?.progressFraction,
                     onTap:    () => _openBook(book),
                   ),
                 );
@@ -475,7 +476,7 @@ class _LibraryScreenState extends State<LibraryScreen>
       ),
       child: BookGridCard(
         book:        book,
-        progress:    context.read<LibraryProvider>().getProgress(book.id),
+        progress:    context.read<LibraryProvider>().getProgress(book.id)?.progressFraction,
         onTap:       () => _openBook(book),
         onLongPress: () => _showBookContextMenu(book),
       ),

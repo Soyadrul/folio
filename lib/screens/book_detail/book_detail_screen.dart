@@ -352,16 +352,18 @@ class _BookDetailScreenState extends State<BookDetailScreen>
       return Stack(
         fit: StackFit.expand,
         children: [
-          Image.memory(
-            Uint8List.fromList(book.coverBytes!),
-            fit:          BoxFit.cover,
-            // colorFilter desaturates a little so it doesn't overpower
-            colorFilter:  const ColorFilter.matrix([
+          // ColorFiltered applies the desaturation matrix to the image
+          ColorFiltered(
+            colorFilter: ColorFilter.matrix([
               0.8, 0.1, 0.1, 0, 0,
               0.1, 0.8, 0.1, 0, 0,
               0.1, 0.1, 0.8, 0, 0,
               0,   0,   0,   1, 0,
             ]),
+            child: Image.memory(
+              Uint8List.fromList(book.coverBytes!),
+              fit: BoxFit.cover,
+            ),
           ),
           // Blur overlay via BackdropFilter
           // This creates the frosted-glass atmospheric effect
