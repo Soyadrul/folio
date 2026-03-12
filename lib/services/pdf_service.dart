@@ -26,10 +26,6 @@ class PdfService {
       // We must close it when done to release the file handle.
       final doc = await PdfDocument.openFile(existingBook.filePath);
 
-      // ── Page count ────────────────────────────────────────────────────
-      // PDFs always have a page count — this is reliable metadata.
-      final pageCount = doc.pagesCount;
-
       // ── Cover image from first page ───────────────────────────────────
       // We render the first page at low resolution to use as a thumbnail.
       // 150px wide is plenty for a library cover card.

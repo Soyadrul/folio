@@ -20,7 +20,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 import '../../providers/settings_provider.dart';
 import '../../providers/theme_provider.dart';
@@ -43,7 +42,6 @@ class _C {
   static const sub     = Color(0xFF4A6A8A); // Secondary / subtitle text
   static const dim     = Color(0xFF2A3A50); // Dimmed / disabled
   static const red     = Color(0xFFBF4A4A); // Destructive actions
-  static const green   = Color(0xFF4CAF80); // Success / active
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -495,7 +493,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
           subtitle: 'Show the "leave book?" dialog again when closing a book',
           onTap:    () async {
             // Reset by writing false back to preferences
-            final prefs = await _resetExitConfirm(settings);
+            await _resetExitConfirm(settings);
           },
           isDestructive: false,
           accentOverride: _C.dim,

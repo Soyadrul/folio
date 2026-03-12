@@ -97,10 +97,6 @@ class _ReaderScreenState extends State<ReaderScreen>
   // Total pages/spine items — set after book loads
   int _totalPages = 1;
 
-  // ── Exit confirmation ─────────────────────────────────────────────────────
-  // Whether we've shown the "first exit" dialog for this session
-  bool _exitConfirmPending = false;
-
   // ── Panel visibility ──────────────────────────────────────────────────────
   // Slide-in drawer panels — only one is open at a time
   bool _tocVisible         = false; // Table of Contents (left panel)
@@ -490,7 +486,7 @@ class _ReaderScreenState extends State<ReaderScreen>
       scrollDirection: isScrollMode ? Axis.vertical : Axis.horizontal,
       // Page change callback — updates our progress tracker
       onPageChanged: (page) {
-        _updatePdfProgress(page ?? 1);
+        _updatePdfProgress(page);
       },
       builders: PdfViewBuilders<DefaultBuilderOptions>(
         options: const DefaultBuilderOptions(),
@@ -777,7 +773,7 @@ class _ReaderScreenState extends State<ReaderScreen>
     // We get its index from the chapterNumber field (1-based), converting to 0-based.
     final chapterValue = _epubController?.currentValueListenable.value;
     final spineIdx     = chapterValue != null
-        ? ((chapterValue.chapterNumber ?? 1) - 1).clamp(0, _totalPages - 1)
+        ? (chapterValue.chapterNumber - 1).clamp(0, _totalPages - 1)
         : 0;
     final fraction = _totalPages > 1 ? spineIdx / _totalPages : 0.0;
 

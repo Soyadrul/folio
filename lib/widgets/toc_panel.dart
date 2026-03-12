@@ -20,10 +20,8 @@
 import 'package:epub_view/epub_view.dart' as ev;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:intl/intl.dart';
 
 import '../models/models.dart';
-import '../providers/reader_provider.dart';
 
 // ─────────────────────────────────────────────────────────────────────────────
 // TOC PANEL

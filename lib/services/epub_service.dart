@@ -69,18 +69,6 @@ class EpubService {
               ?.Description
               ?.trim() ?? '';
 
-      // ── Language ─────────────────────────────────────────────────────
-      final language = epubBook.Schema?.Package?.Metadata
-              ?.Languages
-              ?.firstOrNull
-              ?.trim() ?? '';
-
-      // ── Publisher ────────────────────────────────────────────────────
-      final publisher = epubBook.Schema?.Package?.Metadata
-              ?.Publishers
-              ?.firstOrNull
-              ?.trim() ?? '';
-
       // Return a new Book with all fields filled in from real EPUB metadata
       return existingBook.copyWith(
         title:       title.isNotEmpty       ? title       : null,

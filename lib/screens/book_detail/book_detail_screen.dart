@@ -26,7 +26,6 @@
 ///   │  Format · File Size · Added to library   │
 ///   └──────────────────────────────────────────┘
 
-import 'dart:math' as math;
 import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';

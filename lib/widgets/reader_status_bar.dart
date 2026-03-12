@@ -22,7 +22,6 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 import '../models/models.dart';
-import '../providers/settings_provider.dart';
 
 // ─────────────────────────────────────────────────────────────────────────────
 // READER STATUS BAR
