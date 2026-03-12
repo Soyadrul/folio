@@ -451,7 +451,7 @@ class _ReaderScreenState extends State<ReaderScreen>
         ),
         // Chapter divider shown between chapters
         chapterDividerBuilder: (_) => Divider(
-          color: pageText.withOpacity(0.1),
+          color: pageText.withValues(alpha: 0.1),
           height: 48,
         ),
         // Chapter builder — we use the default but track progress
@@ -560,7 +560,7 @@ class _ReaderScreenState extends State<ReaderScreen>
       height:      settings.lineHeightMultiplier,
       color:       settings.highContrastText
           ? textColor                          // Full opacity
-          : textColor.withOpacity(0.88),       // Slightly softened for normal reading
+          : textColor.withValues(alpha: 0.88),       // Slightly softened for normal reading
       letterSpacing: 0.1,
     );
   }
@@ -883,12 +883,12 @@ class _ReaderScreenState extends State<ReaderScreen>
         child: Container(
           padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
           decoration: BoxDecoration(
-            color:        bg.withOpacity(0.85),
+            color:        bg.withValues(alpha: 0.85),
             borderRadius: BorderRadius.circular(12),
-            border: Border.all(color: fg.withOpacity(0.15)),
+            border: Border.all(color: fg.withValues(alpha: 0.15)),
             boxShadow: [
               BoxShadow(
-                  color: Colors.black.withOpacity(0.15),
+                  color: Colors.black.withValues(alpha: 0.15),
                   blurRadius: 8)
             ],
           ),
@@ -896,12 +896,12 @@ class _ReaderScreenState extends State<ReaderScreen>
             mainAxisSize: MainAxisSize.min,
             children: [
               Icon(Icons.speed_rounded,
-                  color: fg.withOpacity(0.6), size: 14),
+                  color: fg.withValues(alpha: 0.6), size: 14),
               const SizedBox(width: 6),
               Text(
                 '${reader.autoScrollSpeed.round()} px/s',
                 style: TextStyle(
-                    color: fg.withOpacity(0.7),
+                    color: fg.withValues(alpha: 0.7),
                     fontSize: 12,
                     fontWeight: FontWeight.w600),
               ),
@@ -923,7 +923,7 @@ class _ReaderScreenState extends State<ReaderScreen>
           child: Container(
             padding: const EdgeInsets.all(14),
             decoration: BoxDecoration(
-              color:  Colors.black.withOpacity(0.45),
+              color:  Colors.black.withValues(alpha: 0.45),
               shape:  BoxShape.circle,
             ),
             child: const Icon(Icons.pause_rounded,
@@ -942,23 +942,23 @@ class _ReaderScreenState extends State<ReaderScreen>
       Color bg, Color fg, ReaderProvider reader) {
     return Positioned.fill(
       child: Container(
-        color: bg.withOpacity(0.92),
+        color: bg.withValues(alpha: 0.92),
         child: Center(
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
               Icon(Icons.bedtime_outlined,
-                  color: fg.withOpacity(0.5), size: 56),
+                  color: fg.withValues(alpha: 0.5), size: 56),
               const SizedBox(height: 24),
               Text('Sleep timer ended',
                   style: TextStyle(
-                      color: fg.withOpacity(0.8),
+                      color: fg.withValues(alpha: 0.8),
                       fontSize: 22,
                       fontWeight: FontWeight.w300)),
               const SizedBox(height: 12),
               Text('Tap to keep reading',
                   style: TextStyle(
-                      color: fg.withOpacity(0.4), fontSize: 14)),
+                      color: fg.withValues(alpha: 0.4), fontSize: 14)),
               const SizedBox(height: 36),
               GestureDetector(
                 onTap: () {
@@ -972,10 +972,10 @@ class _ReaderScreenState extends State<ReaderScreen>
                   padding: const EdgeInsets.symmetric(
                       horizontal: 28, vertical: 13),
                   decoration: BoxDecoration(
-                    color:        const Color(0xFF5B7FA6).withOpacity(0.15),
+                    color:        const Color(0xFF5B7FA6).withValues(alpha: 0.15),
                     borderRadius: BorderRadius.circular(12),
                     border: Border.all(
-                        color: const Color(0xFF5B7FA6).withOpacity(0.4)),
+                        color: const Color(0xFF5B7FA6).withValues(alpha: 0.4)),
                   ),
                   child: const Text('Continue reading',
                       style: TextStyle(
@@ -1011,7 +1011,7 @@ class _ReaderScreenState extends State<ReaderScreen>
             Text(
               _loadingMessage,
               style: TextStyle(
-                  color: fg.withOpacity(0.5),
+                  color: fg.withValues(alpha: 0.5),
                   fontSize: 14,
                   fontWeight: FontWeight.w300),
             ),
@@ -1029,13 +1029,13 @@ class _ReaderScreenState extends State<ReaderScreen>
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Icon(Icons.error_outline_rounded,
-              color: fg.withOpacity(0.3), size: 56),
+              color: fg.withValues(alpha: 0.3), size: 56),
           const SizedBox(height: 24),
           Text(
             _loadError ?? 'Unknown error',
             textAlign: TextAlign.center,
             style: TextStyle(
-                color: fg.withOpacity(0.55), fontSize: 14, height: 1.6),
+                color: fg.withValues(alpha: 0.55), fontSize: 14, height: 1.6),
           ),
           const SizedBox(height: 36),
           GestureDetector(
@@ -1044,10 +1044,10 @@ class _ReaderScreenState extends State<ReaderScreen>
               padding: const EdgeInsets.symmetric(
                   horizontal: 24, vertical: 12),
               decoration: BoxDecoration(
-                color:        const Color(0xFF5B7FA6).withOpacity(0.15),
+                color:        const Color(0xFF5B7FA6).withValues(alpha: 0.15),
                 borderRadius: BorderRadius.circular(10),
                 border: Border.all(
-                    color: const Color(0xFF5B7FA6).withOpacity(0.4)),
+                    color: const Color(0xFF5B7FA6).withValues(alpha: 0.4)),
               ),
               child: const Text('Back to Library',
                   style: TextStyle(color: Color(0xFF7BA7D4))),

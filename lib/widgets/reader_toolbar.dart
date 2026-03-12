@@ -100,7 +100,7 @@ class ReaderToolbar extends StatelessWidget {
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
-                    color:      foregroundColor.withOpacity(0.85),
+                    color:      foregroundColor.withValues(alpha: 0.85),
                     fontSize:   14,
                     fontWeight: FontWeight.w500,
                   ),
@@ -111,7 +111,7 @@ class ReaderToolbar extends StatelessWidget {
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                     style: TextStyle(
-                      color:    foregroundColor.withOpacity(0.4),
+                      color:    foregroundColor.withValues(alpha: 0.4),
                       fontSize: 11,
                     ),
                   ),
@@ -195,10 +195,10 @@ class _ToolbarButton extends StatelessWidget {
         child: InkWell(
           onTap:         onTap,
           borderRadius:  BorderRadius.circular(20),
-          splashColor:   color.withOpacity(0.12),
+          splashColor:   color.withValues(alpha: 0.12),
           child: Padding(
             padding: const EdgeInsets.all(10),
-            child: Icon(icon, color: color.withOpacity(0.75), size: size),
+            child: Icon(icon, color: color.withValues(alpha: 0.75), size: size),
           ),
         ),
       ),
@@ -433,13 +433,13 @@ class _FontFamilyPicker extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
             decoration: BoxDecoration(
               color:        isSelected
-                  ? const Color(0xFF5B7FA6).withOpacity(0.2)
-                  : const Color(0xFFFFFFFF).withOpacity(0.04),
+                  ? const Color(0xFF5B7FA6).withValues(alpha: 0.2)
+                  : const Color(0xFFFFFFFF).withValues(alpha: 0.04),
               borderRadius: BorderRadius.circular(8),
               border: Border.all(
                 color: isSelected
-                    ? const Color(0xFF5B7FA6).withOpacity(0.6)
-                    : const Color(0xFFFFFFFF).withOpacity(0.08),
+                    ? const Color(0xFF5B7FA6).withValues(alpha: 0.6)
+                    : const Color(0xFFFFFFFF).withValues(alpha: 0.08),
               ),
             ),
             child: Text(
@@ -484,13 +484,13 @@ class _ThreeWayToggle extends StatelessWidget {
               padding: const EdgeInsets.symmetric(vertical: 10),
               decoration: BoxDecoration(
                 color:        isActive
-                    ? accentColor.withOpacity(0.18)
-                    : const Color(0xFFFFFFFF).withOpacity(0.04),
+                    ? accentColor.withValues(alpha: 0.18)
+                    : const Color(0xFFFFFFFF).withValues(alpha: 0.04),
                 borderRadius: BorderRadius.circular(8),
                 border: Border.all(
                   color: isActive
-                      ? accentColor.withOpacity(0.5)
-                      : const Color(0xFFFFFFFF).withOpacity(0.07),
+                      ? accentColor.withValues(alpha: 0.5)
+                      : const Color(0xFFFFFFFF).withValues(alpha: 0.07),
                 ),
               ),
               child: Center(
@@ -550,7 +550,7 @@ class _SettingsToggleRow extends StatelessWidget {
           activeColor:    accentColor,
           trackColor:     WidgetStateProperty.resolveWith((states) =>
               states.contains(WidgetState.selected)
-                  ? accentColor.withOpacity(0.3)
+                  ? accentColor.withValues(alpha: 0.3)
                   : const Color(0xFF1E2E42)),
         ),
       ],

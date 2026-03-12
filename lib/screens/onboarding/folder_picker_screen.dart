@@ -229,10 +229,10 @@ class _FolderPickerScreenState extends State<FolderPickerScreen>
               Container(
                 width: 52, height: 52,
                 decoration: BoxDecoration(
-                  color:        const Color(0xFF5B7FA6).withOpacity(0.15),
+                  color:        const Color(0xFF5B7FA6).withValues(alpha: 0.15),
                   borderRadius: BorderRadius.circular(14),
                   border: Border.all(
-                      color: const Color(0xFF5B7FA6).withOpacity(0.3)),
+                      color: const Color(0xFF5B7FA6).withValues(alpha: 0.3)),
                 ),
                 child: const Icon(Icons.folder_outlined,
                     color: Color(0xFF7BA7D4), size: 26),
@@ -381,7 +381,7 @@ class _FolderPickerScreenState extends State<FolderPickerScreen>
           end:    Alignment.bottomCenter,
           colors: [
             Colors.transparent,
-            const Color(0xFF0F1623).withOpacity(0.96),
+            const Color(0xFF0F1623).withValues(alpha: 0.96),
             const Color(0xFF0F1623),
           ],
         ),
@@ -407,10 +407,10 @@ class _FolderPickerScreenState extends State<FolderPickerScreen>
                     width: 52, height: 52,
                     margin: const EdgeInsets.only(right: 12),
                     decoration: BoxDecoration(
-                      color: const Color(0xFFFFFFFF).withOpacity(0.06),
+                      color: const Color(0xFFFFFFFF).withValues(alpha: 0.06),
                       borderRadius: BorderRadius.circular(14),
                       border: Border.all(
-                          color: const Color(0xFFFFFFFF).withOpacity(0.1)),
+                          color: const Color(0xFFFFFFFF).withValues(alpha: 0.1)),
                     ),
                     child: const Icon(Icons.arrow_back_rounded,
                         color: Color(0xFF8A9BB5), size: 20),
@@ -557,10 +557,10 @@ class _FolderPickerScreenState extends State<FolderPickerScreen>
         width:   double.infinity,
         padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 20),
         decoration: BoxDecoration(
-          color:        const Color(0xFF5B7FA6).withOpacity(0.12),
+          color:        const Color(0xFF5B7FA6).withValues(alpha: 0.12),
           borderRadius: BorderRadius.circular(14),
           border: Border.all(
-              color: const Color(0xFF5B7FA6).withOpacity(0.35), width: 1.5),
+              color: const Color(0xFF5B7FA6).withValues(alpha: 0.35), width: 1.5),
         ),
         child: const Row(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -589,10 +589,10 @@ class _FolderPickerScreenState extends State<FolderPickerScreen>
       margin:  const EdgeInsets.only(bottom: 10),
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 13),
       decoration: BoxDecoration(
-        color:        const Color(0xFFFFFFFF).withOpacity(0.04),
+        color:        const Color(0xFFFFFFFF).withValues(alpha: 0.04),
         borderRadius: BorderRadius.circular(12),
         border: Border.all(
-            color: const Color(0xFFFFFFFF).withOpacity(0.08)),
+            color: const Color(0xFFFFFFFF).withValues(alpha: 0.08)),
       ),
       child: Row(
         children: [
@@ -636,7 +636,7 @@ class _FolderPickerScreenState extends State<FolderPickerScreen>
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(14),
         border: Border.all(
-            color: const Color(0xFFFFFFFF).withOpacity(0.06)),
+            color: const Color(0xFFFFFFFF).withValues(alpha: 0.06)),
       ),
       child: const Row(
         children: [
@@ -820,7 +820,7 @@ class _BookPainter extends CustomPainter {
       100,
       Paint()
         ..shader = RadialGradient(colors: [
-          const Color(0xFF5B7FA6).withOpacity(0.22),
+          const Color(0xFF5B7FA6).withValues(alpha: 0.22),
           Colors.transparent,
         ]).createShader(
             Rect.fromCircle(center: Offset(cx, cy), radius: 100)),
@@ -862,7 +862,7 @@ class _BookPainter extends CustomPainter {
 
     // ── Page edge outlines ────────────────────────────────────────────────
     final edgePaint = Paint()
-      ..color       = const Color(0xFF7BA7D4).withOpacity(0.28)
+      ..color       = const Color(0xFF7BA7D4).withValues(alpha: 0.28)
       ..strokeWidth = 1.0
       ..style       = PaintingStyle.stroke;
     canvas.drawPath(leftPage,  edgePaint);
@@ -879,7 +879,7 @@ class _BookPainter extends CustomPainter {
 
     // ── Simulated text lines ──────────────────────────────────────────────
     final linePaint = Paint()
-      ..color       = const Color(0xFF5B7FA6).withOpacity(0.38)
+      ..color       = const Color(0xFF5B7FA6).withValues(alpha: 0.38)
       ..strokeWidth = 1.1
       ..strokeCap   = StrokeCap.round;
 
@@ -901,13 +901,13 @@ class _BookPainter extends CustomPainter {
 
     // ── Decorative star dots ──────────────────────────────────────────────
     _star(canvas, Offset(cx - 100, cy - 50), 2.8,
-        const Color(0xFF5B7FA6).withOpacity(0.5));
+        const Color(0xFF5B7FA6).withValues(alpha: 0.5));
     _star(canvas, Offset(cx + 104, cy - 42), 2.0,
-        const Color(0xFF7BA7D4).withOpacity(0.4));
+        const Color(0xFF7BA7D4).withValues(alpha: 0.4));
     _star(canvas, Offset(cx + 92,  cy + 56), 2.4,
-        const Color(0xFF5B7FA6).withOpacity(0.35));
+        const Color(0xFF5B7FA6).withValues(alpha: 0.35));
     _star(canvas, Offset(cx - 88,  cy + 58), 1.8,
-        const Color(0xFF7BA7D4).withOpacity(0.3));
+        const Color(0xFF7BA7D4).withValues(alpha: 0.3));
   }
 
   void _star(Canvas canvas, Offset c, double r, Color col) {

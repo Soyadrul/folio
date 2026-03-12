@@ -266,7 +266,7 @@ class _BookDetailScreenState extends State<BookDetailScreen>
                 borderRadius: BorderRadius.circular(14),
                 boxShadow: [
                   BoxShadow(
-                    color:      Colors.black.withOpacity(0.55),
+                    color:      Colors.black.withValues(alpha: 0.55),
                     blurRadius: 32,
                     offset:     const Offset(0, 12),
                     spreadRadius: 2,
@@ -368,7 +368,7 @@ class _BookDetailScreenState extends State<BookDetailScreen>
           // This creates the frosted-glass atmospheric effect
           BackdropFilter(
             filter: ColorFilter.mode(
-              Colors.black.withOpacity(0.3),
+              Colors.black.withValues(alpha: 0.3),
               BlendMode.darken,
             ),
             child: const SizedBox.expand(),
@@ -385,7 +385,7 @@ class _BookDetailScreenState extends State<BookDetailScreen>
           center: const Alignment(0.0, -0.3),
           radius: 1.2,
           colors: [
-            bgColor.withOpacity(0.8),
+            bgColor.withValues(alpha: 0.8),
             _C.bg,
           ],
         ),
@@ -560,12 +560,12 @@ class _BookDetailScreenState extends State<BookDetailScreen>
                     padding:  const EdgeInsets.all(6),
                     decoration: BoxDecoration(
                       color:        isLocked
-                          ? _C.gold.withOpacity(0.12)
-                          : _C.dim.withOpacity(0.15),
+                          ? _C.gold.withValues(alpha: 0.12)
+                          : _C.dim.withValues(alpha: 0.15),
                       borderRadius: BorderRadius.circular(8),
                       border: Border.all(
                         color: isLocked
-                            ? _C.gold.withOpacity(0.4)
+                            ? _C.gold.withValues(alpha: 0.4)
                             : _C.border,
                         width: 0.8,
                       ),
@@ -625,7 +625,7 @@ class _BookDetailScreenState extends State<BookDetailScreen>
             padding: const EdgeInsets.symmetric(
                 horizontal: 14, vertical: 10),
             decoration: BoxDecoration(
-              color:        _C.accent.withOpacity(0.06),
+              color:        _C.accent.withValues(alpha: 0.06),
               borderRadius: BorderRadius.circular(8),
               border: Border.all(color: _C.border),
             ),
@@ -1004,8 +1004,8 @@ class _ReadingTimeline extends StatelessWidget {
                 width:  1.5,
                 height: 48,
                 color:  startedAt != null && finishedAt != null
-                    ? _C.accentL.withOpacity(0.4)
-                    : _C.dim.withOpacity(0.3),
+                    ? _C.accentL.withValues(alpha: 0.4)
+                    : _C.dim.withValues(alpha: 0.3),
               ),
               // End dot
               _TimelineDot(
@@ -1124,10 +1124,10 @@ class _DateRow extends StatelessWidget {
               padding: const EdgeInsets.symmetric(
                   horizontal: 8, vertical: 4),
               decoration: BoxDecoration(
-                color:        accentColor.withOpacity(0.1),
+                color:        accentColor.withValues(alpha: 0.1),
                 borderRadius: BorderRadius.circular(6),
                 border: Border.all(
-                    color: accentColor.withOpacity(0.25), width: 0.7),
+                    color: accentColor.withValues(alpha: 0.25), width: 0.7),
               ),
               child: Text(
                 hasDate ? 'Edit' : 'Set',
@@ -1317,7 +1317,7 @@ class _PrimaryButton extends StatelessWidget {
           borderRadius: BorderRadius.circular(12),
           boxShadow: [
             BoxShadow(
-              color:      _C.accent.withOpacity(0.3),
+              color:      _C.accent.withValues(alpha: 0.3),
               blurRadius: 12,
               offset:     const Offset(0, 4),
             ),

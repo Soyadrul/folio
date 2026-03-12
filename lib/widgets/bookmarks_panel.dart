@@ -117,7 +117,7 @@ class _BookmarksPanelState extends State<BookmarksPanel>
         Positioned.fill(
           child: GestureDetector(
             onTap: widget.onClose,
-            child: Container(color: Colors.black.withOpacity(0.45)),
+            child: Container(color: Colors.black.withValues(alpha: 0.45)),
           ),
         ),
 
@@ -130,7 +130,7 @@ class _BookmarksPanelState extends State<BookmarksPanel>
               color: bg,
               boxShadow: [
                 BoxShadow(
-                  color:      Colors.black.withOpacity(0.4),
+                  color:      Colors.black.withValues(alpha: 0.4),
                   blurRadius: 24,
                   offset:     const Offset(-8, 0),
                 ),
@@ -164,7 +164,7 @@ class _BookmarksPanelState extends State<BookmarksPanel>
             child: Text(
               'ANNOTATIONS',
               style: TextStyle(
-                color:         fg.withOpacity(0.35),
+                color:         fg.withValues(alpha: 0.35),
                 fontSize:      10,
                 fontWeight:    FontWeight.w700,
                 letterSpacing: 1.5,
@@ -173,7 +173,7 @@ class _BookmarksPanelState extends State<BookmarksPanel>
           ),
           IconButton(
             icon:      Icon(Icons.close_rounded,
-                color: fg.withOpacity(0.4), size: 20),
+                color: fg.withValues(alpha: 0.4), size: 20),
             onPressed: widget.onClose,
           ),
         ],
@@ -197,12 +197,12 @@ class _BookmarksPanelState extends State<BookmarksPanel>
             controller:        _tabCtrl,
             indicatorColor:    const Color(0xFF5B7FA6),
             indicatorWeight:   2,
-            labelColor:        fg.withOpacity(0.9),
-            unselectedLabelColor: fg.withOpacity(0.35),
+            labelColor:        fg.withValues(alpha: 0.9),
+            unselectedLabelColor: fg.withValues(alpha: 0.35),
             labelStyle: const TextStyle(
                 fontSize: 13, fontWeight: FontWeight.w600),
             unselectedLabelStyle: const TextStyle(fontSize: 13),
-            dividerColor:      fg.withOpacity(0.08),
+            dividerColor:      fg.withValues(alpha: 0.08),
             tabs: [
               Tab(text: bCount > 0 ? 'Bookmarks ($bCount)' : 'Bookmarks'),
               Tab(text: hCount > 0 ? 'Highlights ($hCount)' : 'Highlights'),
@@ -316,17 +316,17 @@ class _BookmarksPanelState extends State<BookmarksPanel>
       decoration: BoxDecoration(
         color:  bg,
         border: Border(top: BorderSide(
-            color: fg.withOpacity(0.08), width: 0.8)),
+            color: fg.withValues(alpha: 0.08), width: 0.8)),
       ),
       child: GestureDetector(
         onTap: () => _showAddBookmarkSheet(context, fg),
         child: Container(
           padding: const EdgeInsets.symmetric(vertical: 12),
           decoration: BoxDecoration(
-            color:        const Color(0xFF5B7FA6).withOpacity(0.15),
+            color:        const Color(0xFF5B7FA6).withValues(alpha: 0.15),
             borderRadius: BorderRadius.circular(12),
             border: Border.all(
-                color: const Color(0xFF5B7FA6).withOpacity(0.35)),
+                color: const Color(0xFF5B7FA6).withValues(alpha: 0.35)),
           ),
           child: const Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -365,19 +365,19 @@ class _BookmarksPanelState extends State<BookmarksPanel>
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(icon, color: fg.withOpacity(0.15), size: 48),
+            Icon(icon, color: fg.withValues(alpha: 0.15), size: 48),
             const SizedBox(height: 20),
             Text(title,
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                    color: fg.withOpacity(0.5),
+                    color: fg.withValues(alpha: 0.5),
                     fontSize: 15,
                     fontWeight: FontWeight.w500)),
             const SizedBox(height: 8),
             Text(subtitle,
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                    color: fg.withOpacity(0.3),
+                    color: fg.withValues(alpha: 0.3),
                     fontSize: 12,
                     height: 1.5)),
           ],
@@ -549,7 +549,7 @@ class _BookmarkRow extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 14),
           decoration: BoxDecoration(
             border: Border(
-              bottom: BorderSide(color: fg.withOpacity(0.06), width: 0.8),
+              bottom: BorderSide(color: fg.withValues(alpha: 0.06), width: 0.8),
             ),
           ),
           child: Row(
@@ -571,7 +571,7 @@ class _BookmarkRow extends StatelessWidget {
                     Text(
                       bookmark.label,
                       style: TextStyle(
-                        color:      fg.withOpacity(0.85),
+                        color:      fg.withValues(alpha: 0.85),
                         fontSize:   13,
                         fontWeight: FontWeight.w600,
                       ),
@@ -582,7 +582,7 @@ class _BookmarkRow extends StatelessWidget {
                     Text(
                       '$_positionLabel  ·  ${dateFmt.format(bookmark.createdAt)}',
                       style: TextStyle(
-                        color:    fg.withOpacity(0.35),
+                        color:    fg.withValues(alpha: 0.35),
                         fontSize: 11,
                       ),
                     ),
@@ -595,7 +595,7 @@ class _BookmarkRow extends StatelessWidget {
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis,
                         style: TextStyle(
-                          color:  fg.withOpacity(0.45),
+                          color:  fg.withValues(alpha: 0.45),
                           fontSize: 12,
                           height: 1.4,
                           fontStyle: FontStyle.italic,
@@ -608,7 +608,7 @@ class _BookmarkRow extends StatelessWidget {
 
               const SizedBox(width: 8),
               Icon(Icons.chevron_right_rounded,
-                  color: fg.withOpacity(0.2), size: 16),
+                  color: fg.withValues(alpha: 0.2), size: 16),
             ],
           ),
         ),
@@ -665,10 +665,10 @@ class _HighlightRow extends StatelessWidget {
         child: Container(
           margin: const EdgeInsets.symmetric(horizontal: 14, vertical: 5),
           decoration: BoxDecoration(
-            color:        hlColor.withOpacity(0.07),
+            color:        hlColor.withValues(alpha: 0.07),
             borderRadius: BorderRadius.circular(10),
             border: Border(
-              left: BorderSide(color: hlColor.withOpacity(0.8), width: 3),
+              left: BorderSide(color: hlColor.withValues(alpha: 0.8), width: 3),
             ),
           ),
           child: Padding(
@@ -682,7 +682,7 @@ class _HighlightRow extends StatelessWidget {
                   maxLines: 3,
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
-                    color:      fg.withOpacity(0.8),
+                    color:      fg.withValues(alpha: 0.8),
                     fontSize:   13,
                     height:     1.5,
                     fontStyle:  FontStyle.italic,
@@ -696,7 +696,7 @@ class _HighlightRow extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Icon(Icons.notes_rounded,
-                          color: fg.withOpacity(0.3), size: 12),
+                          color: fg.withValues(alpha: 0.3), size: 12),
                       const SizedBox(width: 5),
                       Expanded(
                         child: Text(
@@ -704,7 +704,7 @@ class _HighlightRow extends StatelessWidget {
                           maxLines:  2,
                           overflow:  TextOverflow.ellipsis,
                           style: TextStyle(
-                            color:    fg.withOpacity(0.5),
+                            color:    fg.withValues(alpha: 0.5),
                             fontSize: 11,
                             height:   1.4,
                           ),
@@ -731,7 +731,7 @@ class _HighlightRow extends StatelessWidget {
                     Text(
                       '$_positionLabel  ·  ${dateFmt.format(highlight.createdAt)}',
                       style: TextStyle(
-                        color:    fg.withOpacity(0.3),
+                        color:    fg.withValues(alpha: 0.3),
                         fontSize: 10,
                       ),
                     ),
@@ -740,7 +740,7 @@ class _HighlightRow extends StatelessWidget {
                     Text(
                       'Edit',
                       style: TextStyle(
-                        color:      const Color(0xFF5B7FA6).withOpacity(0.6),
+                        color:      const Color(0xFF5B7FA6).withValues(alpha: 0.6),
                         fontSize:   10,
                         fontWeight: FontWeight.w600,
                       ),
@@ -767,7 +767,7 @@ class _DeleteBackground extends StatelessWidget {
     return Container(
       alignment:  Alignment.centerRight,
       padding:    const EdgeInsets.only(right: 20),
-      color:      const Color(0xFFBF4A4A).withOpacity(0.15),
+      color:      const Color(0xFFBF4A4A).withValues(alpha: 0.15),
       child: const Row(
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
@@ -833,13 +833,13 @@ class _AddBookmarkSheet extends StatelessWidget {
 
             Text('Add Bookmark',
                 style: TextStyle(
-                    color: fg.withOpacity(0.9),
+                    color: fg.withValues(alpha: 0.9),
                     fontSize: 17,
                     fontWeight: FontWeight.w600)),
             const SizedBox(height: 6),
             Text(
               'Saves your current position so you can jump back later.',
-              style: TextStyle(color: fg.withOpacity(0.4), fontSize: 12),
+              style: TextStyle(color: fg.withValues(alpha: 0.4), fontSize: 12),
             ),
 
             const SizedBox(height: 20),
@@ -980,11 +980,11 @@ class _HighlightEditorSheetState extends State<_HighlightEditorSheet> {
                 width:   double.infinity,
                 padding: const EdgeInsets.all(14),
                 decoration: BoxDecoration(
-                  color:        _selectedColor.color.withOpacity(0.1),
+                  color:        _selectedColor.color.withValues(alpha: 0.1),
                   borderRadius: BorderRadius.circular(10),
                   border: Border(
                     left: BorderSide(
-                        color: _selectedColor.color.withOpacity(0.7),
+                        color: _selectedColor.color.withValues(alpha: 0.7),
                         width: 3),
                   ),
                 ),
@@ -993,7 +993,7 @@ class _HighlightEditorSheetState extends State<_HighlightEditorSheet> {
                   maxLines: 4,
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
-                    color:     fg.withOpacity(0.75),
+                    color:     fg.withValues(alpha: 0.75),
                     fontSize:  13,
                     height:    1.5,
                     fontStyle: FontStyle.italic,
@@ -1006,7 +1006,7 @@ class _HighlightEditorSheetState extends State<_HighlightEditorSheet> {
               // ── Colour picker ──────────────────────────────────────
               Text('Colour',
                   style: TextStyle(
-                      color: fg.withOpacity(0.45),
+                      color: fg.withValues(alpha: 0.45),
                       fontSize: 12,
                       fontWeight: FontWeight.w600,
                       letterSpacing: 0.5)),
@@ -1021,17 +1021,17 @@ class _HighlightEditorSheetState extends State<_HighlightEditorSheet> {
                       margin:   const EdgeInsets.only(right: 12),
                       width:    36, height: 36,
                       decoration: BoxDecoration(
-                        color:  c.color.withOpacity(0.85),
+                        color:  c.color.withValues(alpha: 0.85),
                         shape:  BoxShape.circle,
                         border: Border.all(
                           color: isSelected
-                              ? Colors.white.withOpacity(0.8)
+                              ? Colors.white.withValues(alpha: 0.8)
                               : Colors.transparent,
                           width: 2.5,
                         ),
                         boxShadow: isSelected
                             ? [BoxShadow(
-                                color:      c.color.withOpacity(0.4),
+                                color:      c.color.withValues(alpha: 0.4),
                                 blurRadius: 8)]
                             : [],
                       ),
@@ -1049,7 +1049,7 @@ class _HighlightEditorSheetState extends State<_HighlightEditorSheet> {
               // ── Note field ─────────────────────────────────────────
               Text('Note',
                   style: TextStyle(
-                      color: fg.withOpacity(0.45),
+                      color: fg.withValues(alpha: 0.45),
                       fontSize: 12,
                       fontWeight: FontWeight.w600,
                       letterSpacing: 0.5)),
@@ -1148,9 +1148,9 @@ class _SheetButton extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
         decoration: BoxDecoration(
-          color:        color.withOpacity(0.1),
+          color:        color.withValues(alpha: 0.1),
           borderRadius: BorderRadius.circular(10),
-          border: Border.all(color: color.withOpacity(0.3)),
+          border: Border.all(color: color.withValues(alpha: 0.3)),
         ),
         child: Row(
           mainAxisSize: MainAxisSize.min,

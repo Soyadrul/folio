@@ -552,9 +552,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
             Container(
               width: 72, height: 72,
               decoration: BoxDecoration(
-                color:        _C.accent.withOpacity(0.12),
+                color:        _C.accent.withValues(alpha: 0.12),
                 borderRadius: BorderRadius.circular(18),
-                border: Border.all(color: _C.accent.withOpacity(0.25)),
+                border: Border.all(color: _C.accent.withValues(alpha: 0.25)),
               ),
               child: const Icon(Icons.menu_book_rounded,
                   color: _C.accentL, size: 34),
@@ -651,7 +651,7 @@ class _SectionHeader extends StatelessWidget {
             Container(
               width: 32, height: 32,
               decoration: BoxDecoration(
-                color:        _C.accent.withOpacity(0.1),
+                color:        _C.accent.withValues(alpha: 0.1),
                 borderRadius: BorderRadius.circular(8),
               ),
               child: Icon(icon, color: _C.accent, size: 16),
@@ -755,7 +755,7 @@ class _ReadingPreviewPanel extends StatelessWidget {
       height:       settings.lineHeightMultiplier,
       color:        settings.highContrastText
           ? previewText
-          : previewText.withOpacity(0.88),
+          : previewText.withValues(alpha: 0.88),
       letterSpacing: 0.1,
     );
 
@@ -796,7 +796,7 @@ class _ReadingPreviewPanel extends StatelessWidget {
             border: Border.all(color: _C.border),
             boxShadow: [
               BoxShadow(
-                color:      Colors.black.withOpacity(0.2),
+                color:      Colors.black.withValues(alpha: 0.2),
                 blurRadius: 8,
                 offset:     const Offset(0, 2),
               ),
@@ -851,13 +851,13 @@ class _ThemePicker extends StatelessWidget {
               padding:  const EdgeInsets.symmetric(vertical: 12),
               decoration: BoxDecoration(
                 color:        isActive
-                    ? _C.accent.withOpacity(0.18)
-                    : Colors.white.withOpacity(0.03),
+                    ? _C.accent.withValues(alpha: 0.18)
+                    : Colors.white.withValues(alpha: 0.03),
                 borderRadius: BorderRadius.circular(10),
                 border: Border.all(
                   color: isActive
-                      ? _C.accent.withOpacity(0.55)
-                      : Colors.white.withOpacity(0.07),
+                      ? _C.accent.withValues(alpha: 0.55)
+                      : Colors.white.withValues(alpha: 0.07),
                   width: isActive ? 1.5 : 0.8,
                 ),
               ),
@@ -918,13 +918,13 @@ class _FontFamilyGrid extends StatelessWidget {
             padding:  const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
             decoration: BoxDecoration(
               color:        isSelected
-                  ? _C.accent.withOpacity(0.12)
-                  : Colors.white.withOpacity(0.03),
+                  ? _C.accent.withValues(alpha: 0.12)
+                  : Colors.white.withValues(alpha: 0.03),
               borderRadius: BorderRadius.circular(10),
               border: Border.all(
                 color: isSelected
-                    ? _C.accent.withOpacity(0.45)
-                    : Colors.white.withOpacity(0.06),
+                    ? _C.accent.withValues(alpha: 0.45)
+                    : Colors.white.withValues(alpha: 0.06),
                 width: isSelected ? 1.5 : 0.8,
               ),
             ),
@@ -1043,13 +1043,13 @@ class _VolumeOption extends StatelessWidget {
         padding:  const EdgeInsets.all(14),
         decoration: BoxDecoration(
           color:        isSelected
-              ? _C.accent.withOpacity(0.1)
-              : Colors.white.withOpacity(0.03),
+              ? _C.accent.withValues(alpha: 0.1)
+              : Colors.white.withValues(alpha: 0.03),
           borderRadius: BorderRadius.circular(10),
           border: Border.all(
             color: isSelected
-                ? _C.accent.withOpacity(0.4)
-                : Colors.white.withOpacity(0.06),
+                ? _C.accent.withValues(alpha: 0.4)
+                : Colors.white.withValues(alpha: 0.06),
             width: isSelected ? 1.5 : 0.8,
           ),
         ),
@@ -1134,13 +1134,13 @@ class _DurationPicker extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 9),
             decoration: BoxDecoration(
               color:        isSelected
-                  ? _C.accent.withOpacity(0.18)
-                  : Colors.white.withOpacity(0.04),
+                  ? _C.accent.withValues(alpha: 0.18)
+                  : Colors.white.withValues(alpha: 0.04),
               borderRadius: BorderRadius.circular(8),
               border: Border.all(
                 color: isSelected
-                    ? _C.accent.withOpacity(0.55)
-                    : Colors.white.withOpacity(0.07),
+                    ? _C.accent.withValues(alpha: 0.55)
+                    : Colors.white.withValues(alpha: 0.07),
                 width: isSelected ? 1.5 : 0.8,
               ),
             ),
@@ -1177,9 +1177,9 @@ class _FolderRow extends StatelessWidget {
       margin:  const EdgeInsets.only(bottom: 8),
       padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
       decoration: BoxDecoration(
-        color:        Colors.white.withOpacity(0.03),
+        color:        Colors.white.withValues(alpha: 0.03),
         borderRadius: BorderRadius.circular(8),
-        border: Border.all(color: Colors.white.withOpacity(0.06)),
+        border: Border.all(color: Colors.white.withValues(alpha: 0.06)),
       ),
       child: Row(
         children: [
@@ -1273,7 +1273,7 @@ class _ToggleRow extends StatelessWidget {
           activeColor: _C.accent,
           trackColor: WidgetStateProperty.resolveWith((states) =>
               states.contains(WidgetState.selected)
-                  ? _C.accent.withOpacity(0.3)
+                  ? _C.accent.withValues(alpha: 0.3)
                   : const Color(0xFF1E2E42)),
         ),
       ],
@@ -1326,7 +1326,7 @@ class _SliderRow extends StatelessWidget {
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
               decoration: BoxDecoration(
-                color:        _C.accent.withOpacity(0.12),
+                color:        _C.accent.withValues(alpha: 0.12),
                 borderRadius: BorderRadius.circular(6),
               ),
               child: Text(displayValue,
@@ -1346,7 +1346,7 @@ class _SliderRow extends StatelessWidget {
             thumbColor:        _C.accentL,
             thumbShape: const RoundSliderThumbShape(enabledThumbRadius: 7),
             overlayShape: const RoundSliderOverlayShape(overlayRadius: 16),
-            overlayColor: _C.accent.withOpacity(0.15),
+            overlayColor: _C.accent.withValues(alpha: 0.15),
           ),
           child: Slider(
             value:     value,
@@ -1387,13 +1387,13 @@ class _SegmentedRow extends StatelessWidget {
               padding: const EdgeInsets.symmetric(vertical: 10),
               decoration: BoxDecoration(
                 color:        isActive
-                    ? _C.accent.withOpacity(0.16)
-                    : Colors.white.withOpacity(0.03),
+                    ? _C.accent.withValues(alpha: 0.16)
+                    : Colors.white.withValues(alpha: 0.03),
                 borderRadius: BorderRadius.circular(8),
                 border: Border.all(
                   color: isActive
-                      ? _C.accent.withOpacity(0.5)
-                      : Colors.white.withOpacity(0.07),
+                      ? _C.accent.withValues(alpha: 0.5)
+                      : Colors.white.withValues(alpha: 0.07),
                   width: isActive ? 1.5 : 0.8,
                 ),
               ),
@@ -1451,7 +1451,7 @@ class _ActionRow extends StatelessWidget {
             Container(
               width: 32, height: 32,
               decoration: BoxDecoration(
-                color:        iconColor.withOpacity(0.1),
+                color:        iconColor.withValues(alpha: 0.1),
                 borderRadius: BorderRadius.circular(8),
               ),
               child: Icon(icon, color: iconColor, size: 16),

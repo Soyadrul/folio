@@ -131,7 +131,7 @@ class _TocPanelState extends State<TocPanel> {
           child: GestureDetector(
             onTap: widget.onClose,
             child: Container(
-              color: Colors.black.withOpacity(0.45),
+              color: Colors.black.withValues(alpha: 0.45),
             ),
           ),
         ),
@@ -145,7 +145,7 @@ class _TocPanelState extends State<TocPanel> {
               color: bg,
               boxShadow: [
                 BoxShadow(
-                  color:      Colors.black.withOpacity(0.35),
+                  color:      Colors.black.withValues(alpha: 0.35),
                   blurRadius: 24,
                   offset:     const Offset(8, 0),
                 ),
@@ -172,7 +172,7 @@ class _TocPanelState extends State<TocPanel> {
       decoration: BoxDecoration(
         color:  bg,
         border: Border(
-          bottom: BorderSide(color: fg.withOpacity(0.08), width: 0.8),
+          bottom: BorderSide(color: fg.withValues(alpha: 0.08), width: 0.8),
         ),
       ),
       child: Row(
@@ -184,7 +184,7 @@ class _TocPanelState extends State<TocPanel> {
                 Text(
                   'CONTENTS',
                   style: TextStyle(
-                    color:         fg.withOpacity(0.35),
+                    color:         fg.withValues(alpha: 0.35),
                     fontSize:      10,
                     fontWeight:    FontWeight.w700,
                     letterSpacing: 1.5,
@@ -196,7 +196,7 @@ class _TocPanelState extends State<TocPanel> {
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
-                    color:      fg.withOpacity(0.8),
+                    color:      fg.withValues(alpha: 0.8),
                     fontSize:   14,
                     fontWeight: FontWeight.w500,
                     height:     1.3,
@@ -208,7 +208,7 @@ class _TocPanelState extends State<TocPanel> {
           // Close button
           IconButton(
             icon:  Icon(Icons.close_rounded,
-                color: fg.withOpacity(0.4), size: 20),
+                color: fg.withValues(alpha: 0.4), size: 20),
             onPressed: widget.onClose,
           ),
         ],
@@ -334,7 +334,7 @@ class _ChapterRow extends StatelessWidget {
         decoration: BoxDecoration(
           // Current chapter gets a soft accent highlight
           color: isCurrent
-              ? const Color(0xFF5B7FA6).withOpacity(0.12)
+              ? const Color(0xFF5B7FA6).withValues(alpha: 0.12)
               : Colors.transparent,
           border: isCurrent
               ? const Border(
@@ -352,7 +352,7 @@ class _ChapterRow extends StatelessWidget {
                 style: TextStyle(
                   color:      isCurrent
                       ? const Color(0xFF7BA7D4)
-                      : fg.withOpacity(0.25),
+                      : fg.withValues(alpha: 0.25),
                   fontSize:   11,
                   fontWeight: FontWeight.w600,
                 ),
@@ -368,10 +368,10 @@ class _ChapterRow extends StatelessWidget {
                 overflow: TextOverflow.ellipsis,
                 style: TextStyle(
                   color: isCurrent
-                      ? fg.withOpacity(0.95)
+                      ? fg.withValues(alpha: 0.95)
                       : isRead
-                          ? fg.withOpacity(0.55)
-                          : fg.withOpacity(0.7),
+                          ? fg.withValues(alpha: 0.55)
+                          : fg.withValues(alpha: 0.7),
                   fontSize:   13,
                   fontWeight: isCurrent ? FontWeight.w600 : FontWeight.normal,
                   height:     1.35,
@@ -395,7 +395,7 @@ class _ChapterRow extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(left: 8),
                 child: Icon(Icons.check_rounded,
-                    color: fg.withOpacity(0.2), size: 14),
+                    color: fg.withValues(alpha: 0.2), size: 14),
               ),
           ],
         ),

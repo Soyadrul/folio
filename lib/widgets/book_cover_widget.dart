@@ -173,14 +173,14 @@ class _GeneratedCover extends StatelessWidget {
             child: Container(
               padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 2),
               decoration: BoxDecoration(
-                color:        accent.withOpacity(0.25),
+                color:        accent.withValues(alpha: 0.25),
                 borderRadius: BorderRadius.circular(4),
-                border: Border.all(color: accent.withOpacity(0.4), width: 0.8),
+                border: Border.all(color: accent.withValues(alpha: 0.4), width: 0.8),
               ),
               child: Text(
                 book.formatDisplayName,
                 style: TextStyle(
-                  color:         accent.withOpacity(0.9),
+                  color:         accent.withValues(alpha: 0.9),
                   fontSize:      8,
                   fontWeight:    FontWeight.w700,
                   letterSpacing: 0.8,
@@ -197,7 +197,7 @@ class _GeneratedCover extends StatelessWidget {
                 Text(
                   init,
                   style: TextStyle(
-                    color:         accent.withOpacity(0.85),
+                    color:         accent.withValues(alpha: 0.85),
                     fontSize:      32,
                     fontWeight:    FontWeight.w200,
                     letterSpacing: init.length == 2 ? 4 : 0,
@@ -209,7 +209,7 @@ class _GeneratedCover extends StatelessWidget {
                 Container(
                   width: 28,
                   height: 0.8,
-                  color: accent.withOpacity(0.35),
+                  color: accent.withValues(alpha: 0.35),
                 ),
               ],
             ),
@@ -225,7 +225,7 @@ class _GeneratedCover extends StatelessWidget {
                   gradient: LinearGradient(
                     begin:  Alignment.topCenter,
                     end:    Alignment.bottomCenter,
-                    colors: [Colors.transparent, bg.withOpacity(0.9)],
+                    colors: [Colors.transparent, bg.withValues(alpha: 0.9)],
                   ),
                 ),
                 child: Text(
@@ -234,7 +234,7 @@ class _GeneratedCover extends StatelessWidget {
                   maxLines:    1,
                   overflow:    TextOverflow.ellipsis,
                   style: TextStyle(
-                    color:         accent.withOpacity(0.65),
+                    color:         accent.withValues(alpha: 0.65),
                     fontSize:      9,
                     letterSpacing: 0.5,
                     fontWeight:    FontWeight.w500,
@@ -264,7 +264,7 @@ class _CoverPatternPainter extends CustomPainter {
   void paint(Canvas canvas, Size size) {
     final rng   = math.Random(seed);
     final paint = Paint()
-      ..color       = accentColor.withOpacity(0.06)
+      ..color       = accentColor.withValues(alpha: 0.06)
       ..style       = PaintingStyle.stroke
       ..strokeWidth = 0.8;
 
@@ -279,7 +279,7 @@ class _CoverPatternPainter extends CustomPainter {
 
     // Draw 2–3 partial circles for a more refined feel
     final circlePaint = Paint()
-      ..color       = accentColor.withOpacity(0.05)
+      ..color       = accentColor.withValues(alpha: 0.05)
       ..style       = PaintingStyle.stroke
       ..strokeWidth = 1.0;
 
@@ -295,7 +295,7 @@ class _CoverPatternPainter extends CustomPainter {
       Offset(size.width * 0.08, size.height * 0.1),
       Offset(size.width * 0.08, size.height * 0.9),
       Paint()
-        ..color       = accentColor.withOpacity(0.15)
+        ..color       = accentColor.withValues(alpha: 0.15)
         ..strokeWidth = 1.5,
     );
   }

@@ -203,7 +203,7 @@ class _ReaderStatusBarState extends State<ReaderStatusBar> {
       mainAxisSize: MainAxisSize.min,
       children: [
         Icon(batteryIcon,
-            color: widget.textColor.withOpacity(0.5),
+            color: widget.textColor.withValues(alpha: 0.5),
             size:  11),
         const SizedBox(width: 3),
         _StatusText('$_batteryLevel%', widget.textColor),
@@ -228,7 +228,7 @@ class _StatusText extends StatelessWidget {
     return Text(
       text,
       style: TextStyle(
-        color:         color.withOpacity(0.55),
+        color:         color.withValues(alpha: 0.55),
         fontSize:      11,
         letterSpacing: 0.3,
         fontWeight:    FontWeight.w400,

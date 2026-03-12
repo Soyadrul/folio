@@ -226,10 +226,10 @@ class _LibraryScreenState extends State<LibraryScreen>
       child: Container(
         height: 44,
         decoration: BoxDecoration(
-          color:        const Color(0xFFFFFFFF).withOpacity(0.06),
+          color:        const Color(0xFFFFFFFF).withValues(alpha: 0.06),
           borderRadius: BorderRadius.circular(12),
           border: Border.all(
-              color: const Color(0xFF5B7FA6).withOpacity(0.3), width: 0.8),
+              color: const Color(0xFF5B7FA6).withValues(alpha: 0.3), width: 0.8),
         ),
         child: Row(
           children: [
@@ -367,7 +367,7 @@ class _LibraryScreenState extends State<LibraryScreen>
           Container(
             margin: const EdgeInsets.fromLTRB(24, 20, 24, 0),
             height: 0.5,
-            color:  const Color(0xFFFFFFFF).withOpacity(0.07),
+            color:  const Color(0xFFFFFFFF).withValues(alpha: 0.07),
           ),
         ],
       ),
@@ -567,7 +567,7 @@ class _LibraryScreenState extends State<LibraryScreen>
             Container(
               width: 80, height: 80,
               decoration: BoxDecoration(
-                color:        const Color(0xFF5B7FA6).withOpacity(0.08),
+                color:        const Color(0xFF5B7FA6).withValues(alpha: 0.08),
                 shape: BoxShape.circle,
               ),
               child: const Icon(Icons.menu_book_outlined,
@@ -607,10 +607,10 @@ class _LibraryScreenState extends State<LibraryScreen>
                 padding: const EdgeInsets.symmetric(
                     horizontal: 28, vertical: 14),
                 decoration: BoxDecoration(
-                  color:        const Color(0xFF5B7FA6).withOpacity(0.15),
+                  color:        const Color(0xFF5B7FA6).withValues(alpha: 0.15),
                   borderRadius: BorderRadius.circular(12),
                   border: Border.all(
-                      color: const Color(0xFF5B7FA6).withOpacity(0.4)),
+                      color: const Color(0xFF5B7FA6).withValues(alpha: 0.4)),
                 ),
                 child: const Text(
                   'Scan again',

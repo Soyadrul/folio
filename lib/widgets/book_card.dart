@@ -226,10 +226,10 @@ class _BookListCardState extends State<BookListCard>
       margin:  const EdgeInsets.only(bottom: 2),
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
       decoration: BoxDecoration(
-        color: const Color(0xFFFFFFFF).withOpacity(0.03),
+        color: const Color(0xFFFFFFFF).withValues(alpha: 0.03),
         border: Border(
           bottom: BorderSide(
-            color: const Color(0xFFFFFFFF).withOpacity(0.05),
+            color: const Color(0xFFFFFFFF).withValues(alpha: 0.05),
             width: 0.8,
           ),
         ),
@@ -482,7 +482,7 @@ class _ProgressBar extends StatelessWidget {
       borderRadius: const BorderRadius.vertical(bottom: Radius.circular(10)),
       child: LinearProgressIndicator(
         value:           progress,
-        backgroundColor: const Color(0xFF0F1623).withOpacity(0.6),
+        backgroundColor: const Color(0xFF0F1623).withValues(alpha: 0.6),
         valueColor:      const AlwaysStoppedAnimation<Color>(Color(0xFF5B7FA6)),
         minHeight:       height,
       ),
@@ -497,9 +497,9 @@ class _FinishedBadge extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 3),
       decoration: BoxDecoration(
-        color:        const Color(0xFF1E3A2F).withOpacity(0.9),
+        color:        const Color(0xFF1E3A2F).withValues(alpha: 0.9),
         borderRadius: BorderRadius.circular(6),
-        border: Border.all(color: const Color(0xFF4CAF80).withOpacity(0.5)),
+        border: Border.all(color: const Color(0xFF4CAF80).withValues(alpha: 0.5)),
       ),
       child: const Row(
         mainAxisSize: MainAxisSize.min,
@@ -529,10 +529,10 @@ class _FormatBadge extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 2),
       decoration: BoxDecoration(
-        color:        const Color(0xFF5B7FA6).withOpacity(0.12),
+        color:        const Color(0xFF5B7FA6).withValues(alpha: 0.12),
         borderRadius: BorderRadius.circular(4),
         border: Border.all(
-            color: const Color(0xFF5B7FA6).withOpacity(0.25), width: 0.7),
+            color: const Color(0xFF5B7FA6).withValues(alpha: 0.25), width: 0.7),
       ),
       child: Text(
         format,
